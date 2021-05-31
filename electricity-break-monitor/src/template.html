@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name='theme-color' content='#333333'>
+
+  %sapper.base%
+
+  <link rel='stylesheet' href='global.css'>
+  <link rel='manifest' href='manifest.json' crossorigin='use-credentials'>
+  <link rel='stylesheet' href='index.css'>
+  <link rel='icon' type='image/png' href='favicon.png'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+  <!-- Sapper generates a <style> tag containing critical CSS
+	     for the current page. CSS for the rest of the app is
+	     lazily loaded when it precaches secondary pages -->
+  %sapper.styles%
+
+  <!-- This contains the contents of the <svelte:head> component, if
+	     the current page has one -->
+  %sapper.head%
+</head>
+
+<body class="bg-gray-100">
+  <!-- The application will be rendered inside this element,
+	     because `src/client.js` references it -->
+  <div id='sapper'>%sapper.html%</div>
+
+  <!-- Sapper creates a <script> tag containing `src/client.js`
+	     and anything else it needs to hydrate the app and
+       initialise the router -->
+  %sapper.scripts%
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDIYMTa07RTHRAhcQkwRbEjABDv7G8j_zU",
+      authDomain: "electricity-break-monitor.firebaseapp.com",
+      databaseURL: "https://electricity-break-monitor.firebaseio.com",
+      projectId: "electricity-break-monitor",
+      storageBucket: "electricity-break-monitor.appspot.com",
+      messagingSenderId: "617203768980",
+      appId: "1:617203768980:web:71af945160d8620b7b1e81"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
+    integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
+</body>
+
+</html>
